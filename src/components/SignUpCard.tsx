@@ -64,11 +64,13 @@ function SingUpCard() {
                 />
               </div>
               <div className="mt-6 bg-blue-600 py-2 rounded-md text-sm font-medium text-white hover:bg-blue-400">
-                <button>Create Account</button>
+                <button>
+                  <Link to={"/dashboard"}>Create Account</Link>
+                </button>
               </div>
               <div className="text-sm mt-5">
                 <p className="text-gray-600">
-                  Already have an account?{" "}
+                  Already have an account?
                   <Link to={"/login"} className="text-blue-600">
                     Sign in
                   </Link>
