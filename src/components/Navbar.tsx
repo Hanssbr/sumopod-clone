@@ -25,7 +25,7 @@ function Navbar() {
                 Sumo<span className="text-blue-600">Pod</span>
               </h1>
               <div className="hidden md:hidden lg:flex justify-between gap-6 text-base font-medium text-gray-800">
-                <Link to="#" className="hover:text-blue-700">
+                <Link to="/" className="hover:text-blue-700">
                   Home
                 </Link>
                 <Link to="#" className="hover:text-blue-700">
@@ -42,13 +42,13 @@ function Navbar() {
             <div className="login-button hidden lg:flex md:flex">
               <div className="flex gap-5">
                 <Link
-                  to="#"
+                  to="/login"
                   className="flex items-center justify-center rounded-md bg-gray-100 px-4 py-2 text-sm font-medium"
                 >
                   Login
                 </Link>
                 <Link
-                  to="#"
+                  to="/signup"
                   className="flex justify-center items-center rounded-md bg-blue-600 px-4 py-2 text-white"
                 >
                   Get Started

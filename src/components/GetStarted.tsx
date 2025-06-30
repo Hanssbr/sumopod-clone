@@ -4,7 +4,7 @@ function GetStarted() {
   return (
     <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center items-center">
       <Link
-        to="/get-started"
+        to="/signup"
         className="flex justify-center items-center rounded-md bg-blue-600 px-6 py-2.5 text-white text-sm sm:text-base w-full sm:w-auto text-center"
       >
         Get Started
