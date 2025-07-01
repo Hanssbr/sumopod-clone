@@ -25,7 +25,10 @@ function SideBar() {
         </div>
         <ul className="space-y-2 mt-3 text-sm font-medium">
           <li>
-            <Link to={"/dashboard/services"} className="block hover:bg-blue-200 p-2 rounded">
+            <Link
+              to={"/dashboard/services"}
+              className="block hover:bg-blue-200 p-2 rounded"
+            >
               Services
             </Link>
           </li>
@@ -35,7 +38,10 @@ function SideBar() {
             </Link>
           </li>
           <li>
-            <Link to={"#"} className="block hover:bg-blue-200 p-2 rounded">
+            <Link
+              to={"/billing"}
+              className="block hover:bg-blue-200 p-2 rounded"
+            >
               Billing
             </Link>
           </li>

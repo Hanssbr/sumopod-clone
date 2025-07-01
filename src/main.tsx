@@ -1,17 +1,18 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import App from "./App.tsx";
 import Templates from "./pages/Templates.tsx";
 import Sign from "./pages/Sign.tsx";
 import Login from "./pages/Login.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
+import Billing from "./pages/Billing.tsx";
+import Payment from "./pages/Payment.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Billing />,
   },
   {
     path: "/templates",
@@ -32,6 +33,14 @@ const router = createBrowserRouter([
   {
     path: "/dashboard/services",
     element: <Dashboard />,
+  },
+  {
+    path: "/billing",
+    element: <Billing />,
+  },
+  {
+    path: "/billing/payments",
+    element: <Payment />,
   },
 ]);
 
