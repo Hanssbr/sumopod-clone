@@ -1,7 +1,35 @@
 import { Link } from "react-router-dom";
 import Google from "../assets/google.png";
+import { useState } from "react";
+import { supabase } from "../supabaseClient";
 
 function SingUpCard() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleRegister = async () => {
+    const { data, error } = await supabase.auth.signUp({ email, password });
+    if (error) {
+      alert(error.message);
+      return;
+    }
+
+    if (data.user) {
+      const { error: insertError } = await supabase.from("users").insert([
+        {
+          id: data.user.id,
+          email: data.user.email,
+        },
+      ]);
+
+      if (insertError) {
+        console.log("Gagal Menyimpan data use ke table");
+      } else {
+        console.log("Gagal Menyimpan data use ke table");
+      }
+      alert("Berhasil daftar! Silakan cek email untuk verifikasi.");
+    }
+  };
   return (
     <>
       <div className="min-h-screen py-12 flex justify-center align-center bg-gray-100 text-center">
@@ -21,52 +49,32 @@ function SingUpCard() {
                   Or Sign up with email
                 </div>
               </div>
-              <div className="flex flex-row justify-between mb-3">
-                <div className="flex flex-col justify-start items-start">
-                  <label htmlFor="firstName">First Name</label>
-                  <input
-                    id="firstName"
-                    type="text"
-                    placeholder=" Jhon"
-                    title="First Name"
-                    className="border-gray-400 border-2 rounded-sm py-1 pl-1 focus:ring-blue-500 focus:outline-none focus:border-blue-400"
-                  />
-                </div>
-                <div className="flex flex-col justify-start items-start">
-                  <label htmlFor="lastName">Last Name</label>
-                  <input
-                    id="lasttName"
-                    type="text"
-                    placeholder=" Jhon"
-                    title="Last Name"
-                    className="border-gray-400 border-2 rounded-sm py-1 pl-1 focus:ring-blue-500 focus:outline-none focus:border-blue-400"
-                  />
-                </div>
-              </div>
-              <div className="flex flex-col justify-start items-start pb-3">
-                <label htmlFor="companyName">Company Name</label>
+              <div className="flex flex-col justify-start items-start">
+                <label htmlFor="email">Email Adress</label>
                 <input
-                  id="companyName"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  id="email"
                   type="text"
-                  placeholder=" Acme inc"
-                  title="company Name"
+                  placeholder="youremail@example.com"
+                  title="email"
                   className="border-gray-400 border-2 rounded-sm pl-1 pr-64 py-1 focus:ring-blue-500 focus:outline-none focus:border-blue-400"
                 />
               </div>
               <div className="flex flex-col justify-start items-start">
-                <label htmlFor="email">Email Adress</label>
+                <label htmlFor="password">Password</label>
                 <input
-                  id="email"
-                  type="text"
-                  placeholder=" youremail@example.com"
-                  title="company Name"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  id="password"
+                  type="password"
+                  placeholder="Password"
+                  title="Password"
                   className="border-gray-400 border-2 rounded-sm pl-1 pr-64 py-1 focus:ring-blue-500 focus:outline-none focus:border-blue-400"
                 />
               </div>
               <div className="mt-6 bg-blue-600 py-2 rounded-md text-sm font-medium text-white hover:bg-blue-400">
-                <button>
-                  <Link to={"/dashboard"}>Create Account</Link>
-                </button>
+                <button onClick={handleRegister}>Create Account</button>
               </div>
               <div className="text-sm mt-5">
                 <p className="text-gray-600">

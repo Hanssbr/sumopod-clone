@@ -1,7 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Google from "../assets/google.png";
+import { supabase } from "../supabaseClient";
+import { useState } from "react";
 
 function LoginCard() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+    if (error) {
+      alert(error.message);
+      return;
+    }
+
+    if (data.session) {
+      navigate("/dashboard");
+    } else {
+      alert("Email Belum Di Verifikasi. silahkan cek email kamu");
+    }
+  };
   return (
     <>
       <div className="min-h-screen py-12 flex justify-center align-center bg-gray-100 text-center">
@@ -24,15 +46,29 @@ function LoginCard() {
               <div className="flex flex-col justify-start items-start">
                 <label htmlFor="email">Email Adress</label>
                 <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   id="email"
                   type="text"
                   placeholder="youremail@example.com"
-                  title="company Name"
+                  title="email"
+                  className="border-gray-400 border-2 rounded-sm pl-1 pr-64 py-1 focus:ring-blue-500 focus:outline-none focus:border-blue-400"
+                />
+              </div>
+              <div className="flex flex-col justify-start items-start">
+                <label htmlFor="password">Password</label>
+                <input
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  id="password"
+                  type="password"
+                  placeholder="Password"
+                  title="Password"
                   className="border-gray-400 border-2 rounded-sm pl-1 pr-64 py-1 focus:ring-blue-500 focus:outline-none focus:border-blue-400"
                 />
               </div>
               <div className="mt-6 bg-blue-600 py-2 rounded-md text-sm font-medium text-white hover:bg-blue-400">
-                <button>Send Verification Code</button>
+                <button onClick={handleLogin}>Login</button>
               </div>
               <div className="text-sm mt-5">
                 <p className="text-gray-600">
