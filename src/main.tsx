@@ -9,11 +9,12 @@ import Dashboard from "./pages/Dashboard.tsx";
 import Billing from "./pages/Billing.tsx";
 import Payment from "./pages/Payment.tsx";
 import { AuthProvider } from "./context/AuthContext.tsx";
+import SingUpCard from "./components/SignUpCard.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Billing />,
+    element: <SingUpCard />,
   },
   {
     path: "/templates",
