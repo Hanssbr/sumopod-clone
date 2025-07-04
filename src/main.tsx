@@ -11,6 +11,7 @@ import Payment from "./pages/Payment.tsx";
 import { AuthProvider } from "./context/AuthContext.tsx";
 import SingUpCard from "./components/SignUpCard.tsx";
 import ProtectedRoute from "./components/Protected.tsx";
+import TopUp from "./pages/TopUp.tsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,14 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <Dashboard />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/topup",
+    element: (
+      <ProtectedRoute>
+        <TopUp />
       </ProtectedRoute>
     ),
   },

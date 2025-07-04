@@ -21,10 +21,10 @@ function PayComp() {
               Billing
             </Link>
             <Link
-              to="/signup"
+              to="/topup"
               className="flex h-fit items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm text-white"
             >
-              Add Credit
+              Top Up
             </Link>
           </div>
         </div>
