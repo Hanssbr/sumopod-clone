@@ -9,14 +9,13 @@ import Dashboard from "./pages/Dashboard.tsx";
 import Billing from "./pages/Billing.tsx";
 import Payment from "./pages/Payment.tsx";
 import { AuthProvider } from "./context/AuthContext.tsx";
-import SingUpCard from "./components/SignUpCard.tsx";
 import ProtectedRoute from "./components/Protected.tsx";
 import TopUp from "./pages/TopUp.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <SingUpCard />,
+    element: <Login />,
   },
   {
     path: "/templates",
@@ -57,7 +56,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/billing/payments",
-    element: <Payment />,
+    element: (
+      <ProtectedRoute>
+        <Payment />
+      </ProtectedRoute>
+    ),
   },
 ]);
 
@@ -68,4 +71,3 @@ createRoot(document.getElementById("root")!).render(
     </AuthProvider>
   </StrictMode>
 );
-

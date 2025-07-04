@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import UserPayments from "./PaymentData";
+import UserBalance from "./Balance";
 
 function PayComp() {
   return (
@@ -29,8 +30,7 @@ function PayComp() {
           </div>
         </div>
         <div className="px-5 py-6 w-full bg-white rounded-md mb-5">
-          <p className="text-sm text-gray-500">Current Credits</p>
-          <p className="text-2xl font-bold">Rp. 10.000</p>
+          <UserBalance />
         </div>
         <div className="px-5 pt-2 w-full border-t-2 border-x-2 border-gray-300 bg-gray-100 rounded-md pb-1 flex gap-4">
           <Link to={"/billing"} className="px-2 py-1">

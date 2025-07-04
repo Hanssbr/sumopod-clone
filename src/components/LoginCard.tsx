@@ -19,7 +19,7 @@ function LoginCard() {
     }
 
     if (data.session) {
-      navigate("/dashboard");
+      navigate("/billing/payments");
     } else {
       alert("Email Belum Di Verifikasi. silahkan cek email kamu");
     }

@@ -39,7 +39,7 @@ function SideBar() {
           </li>
           <li>
             <Link
-              to={"/billing"}
+              to={"/billing/payments"}
               className="block hover:bg-blue-200 p-2 rounded"
             >
               Billing

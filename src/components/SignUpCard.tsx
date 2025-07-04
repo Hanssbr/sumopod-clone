@@ -27,7 +27,7 @@ function SingUpCard() {
       } else {
         console.log("Gagal Menyimpan data use ke table");
       }
-      alert("Berhasil daftar! Silakan cek email untuk verifikasi.");
+      alert("Silahkan Login ke halaman login.");
     }
   };
   return (
