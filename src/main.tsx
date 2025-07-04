@@ -10,6 +10,7 @@ import Billing from "./pages/Billing.tsx";
 import Payment from "./pages/Payment.tsx";
 import { AuthProvider } from "./context/AuthContext.tsx";
 import SingUpCard from "./components/SignUpCard.tsx";
+import ProtectedRoute from "./components/Protected.tsx";
 
 const router = createBrowserRouter([
   {
@@ -30,15 +31,20 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
   },
-  {
-    path: "/dashboard/services",
-    element: <Dashboard />,
-  },
+
   {
     path: "/billing",
-    element: <Billing />,
+    element: (
+      <ProtectedRoute>
+        <Billing />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/billing/payments",
@@ -53,3 +59,4 @@ createRoot(document.getElementById("root")!).render(
     </AuthProvider>
   </StrictMode>
 );
+

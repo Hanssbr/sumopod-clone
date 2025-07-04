@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import UserPayments from "./PaymentData";
 
 function PayComp() {
   return (
@@ -62,26 +63,8 @@ function PayComp() {
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
-            <tr className="hover:bg-gray-50">
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                7/1/2025
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                Rp. 50.000
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">
-                50.000 credits
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm ">
-                <p className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                  Completed
-                </p>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                Invoice
-              </td>
-            </tr>
+          <tbody>
+            <UserPayments />
           </tbody>
         </table>
       </div>
